@@ -10,8 +10,12 @@ _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+_Dependency is required  commons-csv_
 
 ```
-
+ <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.5</version>
+        </dependency>
 ```
