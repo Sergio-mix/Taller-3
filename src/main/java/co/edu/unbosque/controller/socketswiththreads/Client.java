@@ -1,4 +1,4 @@
-package co.edu.unbosque.socketswiththreads;
+package co.edu.unbosque.controller.socketswiththreads;
 
 
 import java.net.Socket;
