@@ -14,13 +14,14 @@ import java.util.Date;
 public class Controller {
     private CaseDao caseDao;
     private Report report;
-    private Csv cvs;
+    private Csv csv;
 
     /**
      * Controller class constructor
      */
     public Controller() {
-
+        csv = new Csv();
+        caseDao = new CaseDao();
     }
 
     /**
@@ -47,7 +48,7 @@ public class Controller {
         report = new Report(species, size, location, direction, name_Of_Individual, persons_Phone, email_Of_The_Person, comments);
         //Case record
         caseDao.registe_Case(report, type_Of_Case, get_Date_And_Time());
-        cvs.write_File("./records.csv");
+        csv.write_File("./records.csv");
     }
 
     /**

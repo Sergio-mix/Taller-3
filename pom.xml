@@ -29,7 +29,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>co.edu.unbosque.controller.Main</mainClass>
+                            <mainClass>co.edu.unbosque.controller.MainCliente</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

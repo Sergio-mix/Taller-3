@@ -7,7 +7,7 @@ public class Report {
     private String species;
     private String size;
     private String location;
-    public String direction;
+    private String direction;
     private String name_Of_Individual;
     private int persons_Phone;
     private String email_Of_The_Person;
