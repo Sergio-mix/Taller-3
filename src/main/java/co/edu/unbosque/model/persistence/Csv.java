@@ -57,7 +57,7 @@ public class Csv {
                 report = new Report(species, size, location, address, name, Integer.parseInt(phone), email, comments);
                 caseDao.registe_Case(report, type_Of_Case, date_And_Time);
             }
-            write_File("./records.csv");
+
         } catch (IOException e) {
             e.printStackTrace();
         }

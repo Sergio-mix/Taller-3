@@ -1,6 +1,8 @@
 package co.edu.unbosque.controller.socketswiththreads;
 
+import java.io.PrintWriter;
 import java.net.ServerSocket;
+import java.util.Scanner;
 import java.util.concurrent.Executors;
 
 /**
@@ -24,12 +26,16 @@ public class CapitalizeServer {
 
         try (var listener = new ServerSocket(5000)) {
 
-            System.out.println("The capitalization server is running...");
-
+            System.out.println("Server is running...");
+            var scanner = new Scanner(System.in);
             var pool = Executors.newFixedThreadPool(20);
+
+
 
             while (true) {
                 pool.execute(new Capitalizer(listener.accept()));
+
+
             }
 
         }

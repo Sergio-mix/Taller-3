@@ -17,9 +17,12 @@ public class CapitalizeClient {
             var in = new Scanner(socket.getInputStream());
             var out = new PrintWriter(socket.getOutputStream(), true);
 
-            while (scanner.hasNextLine()) {
+
+            while (in.hasNextLine()) {
+                System.out.println(in.nextLine());
                 out.println(scanner.nextLine());
-                System.out.println("Transformed message: " + in.nextLine());
+
+
             }
 
         }

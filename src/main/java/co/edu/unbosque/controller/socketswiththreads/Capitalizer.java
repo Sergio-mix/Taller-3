@@ -23,12 +23,13 @@ public class Capitalizer implements Runnable {
             var in = new Scanner(socket.getInputStream());
             var out = new PrintWriter(socket.getOutputStream(), true);
 
-            while (in.hasNextLine()) {
-                var message = in.nextLine();
-                safePrintln("The message received is: " + message);
-                var newMessage = message.toUpperCase();
-                safePrintln("The message to be returned is: " + newMessage);
-                out.println(newMessage);
+            while (true) {
+
+                out.println("Estas conectado con el servidor"
+                        +"\r\nPuedes solicitar una de las siguientes opciones"+
+                        "\r\n(1) Crear caso"+
+                        "\r\n(2) Hablar con un agente ");
+
             }
 
         } catch (Exception e) {
@@ -47,5 +48,7 @@ public class Capitalizer implements Runnable {
             System.out.println(s);
         }
     }
+
+
 
 }
