@@ -35,18 +35,22 @@ public class Agent implements Runnable {
                 out.println(transform_jump(text));
 
                 var message = in.nextLine();
+
                 if (message.equals("1")) {
-                    controller = new Controller();
+
                     String case_Of_Type = "";
-                    out.println("Cual es el tipo de caso que desea reportar\n" +
+                    text = "Cual es el tipo de caso que desea reportar\n" +
                             "(1) Pérdida\n" +
                             "(2) Robo\n" +
                             "(3) Abandono\n" +
                             "(4) Animal peligroso\n" +
-                            "(5) Manejo indebido en vía pública");
+                            "(5) Manejo indebido en vía pública";
+                    out.println(transform_jump(text));
+
                     message = in.nextLine();
                     if (message.equals(("1"))) {
                         case_Of_Type = "Pérdida";
+
                     }
                     if (message.equals(("2"))) {
                         case_Of_Type = "Robo";
@@ -82,7 +86,7 @@ public class Agent implements Runnable {
                     out.println("El caso ha sido creado");
                 }
                 else if (message.equals("2")) {
-                    System.out.println("2");
+                    out.println("2");
                 }
 
             }

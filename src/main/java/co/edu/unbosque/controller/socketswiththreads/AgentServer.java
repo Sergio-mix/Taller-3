@@ -23,7 +23,7 @@ public class AgentServer {
      */
     public static void main(String[] args) throws Exception {
 
-        try (var listener = new ServerSocket(4888)) {
+        try (var listener = new ServerSocket(7200)) {
 
             System.out.println("Server is running...");
             var scanner = new Scanner(System.in);

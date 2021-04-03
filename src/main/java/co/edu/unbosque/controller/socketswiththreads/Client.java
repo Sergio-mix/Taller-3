@@ -8,7 +8,7 @@ public class Client {
 
     public static void main(String[] args) throws Exception {
 
-        try (var socket = new Socket("127.0.0.1", 4888)) {
+        try (var socket = new Socket("127.0.0.1", 7200)) {
 
 
 
@@ -22,6 +22,7 @@ public class Client {
 
                 text =in.nextLine();
                 System.out.println(transform_jump(text));
+
                 out.println(scanner.nextLine());
 
 
