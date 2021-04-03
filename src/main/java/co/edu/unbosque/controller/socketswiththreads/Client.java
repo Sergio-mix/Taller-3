@@ -4,14 +4,13 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class CapitalizeClient {
+public class Client {
 
     public static void main(String[] args) throws Exception {
 
-        try (var socket = new Socket("127.0.0.1", 5000)) {
+        try (var socket = new Socket("127.0.0.1", 4888)) {
 
-            System.out.println("Connected: " + socket);
-            System.out.println("Enter the message to be capitalized...");
+
 
             var scanner = new Scanner(System.in);
             var in = new Scanner(socket.getInputStream());
@@ -19,7 +18,10 @@ public class CapitalizeClient {
 
 
             while (in.hasNextLine()) {
-                System.out.println(in.nextLine());
+                String text ="";
+
+                text =in.nextLine();
+                System.out.println(transform_jump(text));
                 out.println(scanner.nextLine());
 
 
@@ -27,6 +29,10 @@ public class CapitalizeClient {
 
         }
 
+    }
+    public static String transform_jump(String text){
+        text = text.replace("&&","\n");
+        return text;
     }
 
 }

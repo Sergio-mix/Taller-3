@@ -29,7 +29,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>co.edu.unbosque.controller.socketswiththreads.CapitalizeServer</mainClass>
+                            <mainClass>co.edu.unbosque.controller.socketswiththreads.AgentServer</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

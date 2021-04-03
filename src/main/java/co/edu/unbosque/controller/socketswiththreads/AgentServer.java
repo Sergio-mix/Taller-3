@@ -1,6 +1,5 @@
 package co.edu.unbosque.controller.socketswiththreads;
 
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.util.Scanner;
 import java.util.concurrent.Executors;
@@ -14,7 +13,7 @@ import java.util.concurrent.Executors;
  * the thread, allowing much greater throughput because more clients can be
  * handled concurrently.
  */
-public class CapitalizeServer {
+public class AgentServer {
 
     /**
      * Runs the server. When a client connects, the server spawns a new thread to do
@@ -24,7 +23,7 @@ public class CapitalizeServer {
      */
     public static void main(String[] args) throws Exception {
 
-        try (var listener = new ServerSocket(5000)) {
+        try (var listener = new ServerSocket(4888)) {
 
             System.out.println("Server is running...");
             var scanner = new Scanner(System.in);
@@ -33,7 +32,7 @@ public class CapitalizeServer {
 
 
             while (true) {
-                pool.execute(new Capitalizer(listener.accept()));
+                pool.execute(new Agent(listener.accept()));
 
 
             }
