@@ -9,7 +9,7 @@ public class Report {
     private String location;
     private String direction;
     private String name_Of_Individual;
-    private int persons_Phone;
+    private String persons_Phone;
     private String email_Of_The_Person;
     private String comments;
 
@@ -25,7 +25,7 @@ public class Report {
      * @param email_Of_The_Person report email
      * @param comments            report comments
      */
-    public Report(String species, String size, String location, String direction, String name_Of_Individual, int persons_Phone, String email_Of_The_Person, String comments) {
+    public Report(String species, String size, String location, String direction, String name_Of_Individual, String persons_Phone, String email_Of_The_Person, String comments) {
         this.species = species;
         this.size = size;
         this.location = location;
@@ -109,14 +109,14 @@ public class Report {
     /**
      * @return returns the phone number of the person who reports
      */
-    public int getPersons_Phone() {
+    public String getPersons_Phone() {
         return persons_Phone;
     }
 
     /**
      * @param persons_Phone phone number
      */
-    public void setPersons_Phone(int persons_Phone) {
+    public void setPersons_Phone(String persons_Phone) {
         this.persons_Phone = persons_Phone;
     }
 

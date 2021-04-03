@@ -20,8 +20,9 @@ public class Controller {
      * Controller class constructor
      */
     public Controller() {
-        csv = new Csv();
         caseDao = new CaseDao();
+        csv = new Csv();
+        csv.read_File("src\\main\\resources\\data\\records.csv",caseDao.getCase_List());
     }
 
     /**
@@ -42,13 +43,14 @@ public class Controller {
      * @param type_Of_Case        type of case
      */
     public void register_Report(String species, String size, String location, String direction,
-                                String name_Of_Individual, int persons_Phone, String email_Of_The_Person,
+                                String name_Of_Individual, String persons_Phone, String email_Of_The_Person,
                                 String comments, String type_Of_Case) {
         //Report log
         report = new Report(species, size, location, direction, name_Of_Individual, persons_Phone, email_Of_The_Person, comments);
         //Case record
         caseDao.registe_Case(report, type_Of_Case, get_Date_And_Time());
-        csv.write_File("./records.csv");
+
+        csv.write_File("src\\main\\resources\\data\\records.csv", caseDao.getCase_List());
     }
 
     /**

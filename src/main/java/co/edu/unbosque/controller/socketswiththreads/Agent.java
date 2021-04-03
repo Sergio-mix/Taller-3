@@ -82,7 +82,7 @@ public class Agent implements Runnable {
                     out.println("Comentarios generales\n");
                     String comentarios = message;
 
-                    controller.register_Report(Especie, Tamaño, Localidad, Dirección, nombre, Integer.parseInt(telefono), correo, comentarios, case_Of_Type);
+                    controller.register_Report(Especie, Tamaño, Localidad, Dirección, nombre, telefono, correo, comentarios, case_Of_Type);
                     out.println("El caso ha sido creado");
                 }
                 else if (message.equals("2")) {
