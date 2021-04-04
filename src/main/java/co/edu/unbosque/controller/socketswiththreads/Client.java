@@ -12,7 +12,9 @@ public class Client {
             var scanner = new Scanner(System.in);
             var in = new Scanner(socket.getInputStream());
             var out = new PrintWriter(socket.getOutputStream(), true);
+            out.println("Cliente");
             while (in.hasNextLine()) {
+
                 String text ="";
                 text =in.nextLine();
                 System.out.println(transform_jump(text));

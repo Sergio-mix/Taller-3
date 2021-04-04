@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
  * the thread, allowing much greater throughput because more clients can be
  * handled concurrently.
  */
-public class AgentServer {
+public class Server {
 
     /**
      * Runs the server. When a client connects, the server spawns a new thread to do
@@ -29,7 +29,7 @@ public class AgentServer {
             var scanner = new Scanner(System.in);
             var pool = Executors.newFixedThreadPool(20);
             while (true) {
-                pool.execute(new Agent(listener.accept()));
+                pool.execute(new Server_Logic(listener.accept()));
             }
         }
     }
