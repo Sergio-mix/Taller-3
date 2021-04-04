@@ -20,6 +20,7 @@ public class Server_Logic implements Runnable {
         controller = new Controller();
         agents = new ArrayList<>();
     }
+
     String especie = "";
     String tamaño = "";
     String localidad = "";
@@ -28,6 +29,7 @@ public class Server_Logic implements Runnable {
     String telefono = "";
     String correo = "";
     String comentarios = "";
+
     @Override
     public void run() {
         safePrintln("Connected: " + socket);
@@ -39,29 +41,29 @@ public class Server_Logic implements Runnable {
 
 
             while (true) {
-                boolean agentG=false;
-                var entrar=in.nextLine();
-                if(entrar.equals("agente")){
-                    agentG=true;
-                    for (int i=0; i<agents.size();i++){
-                        if(!socket.equals(agents.get(i))){
+                boolean agentG = false;
+                var entrar = in.nextLine();
+                if (entrar.equals("agente")) {
+                    agentG = true;
+                    for (int i = 0; i < agents.size(); i++) {
+                        if (!socket.equals(agents.get(i))) {
                             agents.add(socket);
                         }
                     }
 
                 }
-                if(!agentG){
+                if (!agentG) {
                     String text = "Bienvenidos a Ciudadanos de 4 Patas" +
                             "\nSeleccione:\n" +
                             "(1) Crear caso\n" +
-                            "(2) Hablar con un agente\n"+
+                            "(2) Hablar con un agente\n" +
                             "(3) Salir";
 
                     out.println(transform_jump(text));
 
                     var message = in.nextLine();
 
-                    String case_Of_Type = "";
+
                     if (message.equals("1")) {
 
 
@@ -75,11 +77,10 @@ public class Server_Logic implements Runnable {
 
 
                         var message2 = in.nextLine();
+                        String case_Of_Types = case_Of_Type(message2);
+                        if (message.equals("1") || message.equals("2") || message.equals("3") || message.equals("4") || message.equals("5")) {
 
 
-                        if (message.equals("1")|| message.equals("2")|| message.equals("3")|| message.equals("4")|| message.equals("5")) {
-
-                            case_Of_Type = "Perdida";
                             text = "Cual es la especie \n" +
                                     "(1) Canino\n" +
                                     "(2) Felino";
@@ -126,42 +127,44 @@ public class Server_Logic implements Runnable {
                             out.println("Comentarios generales");
                             message2 = in.nextLine();
                             comentarios = message2;
-                            controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
+                            controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Types);
                             out.println("El caso ha sido creado");
                         }
 
 
-                    }if (message.equals("2")) {
+                    }
+                    if (message.equals("2")) {
                         boolean c = false;
                         Socket b = null;
-                        for (int i=0; i<agents.size();i++){
+                        for (int i = 0; i < agents.size(); i++) {
 
                             Socket a = (Socket) agents.get(i);
                             var inAgent = new Scanner(a.getInputStream());
                             var outAgent = new PrintWriter(a.getOutputStream(), true);
-                            outAgent.println("(1)Aceptar\n"+
+                            outAgent.println("(1)Aceptar\n" +
                                     "(2)Denegar");
                             var messegeAgent = inAgent.nextLine();
-                            if(messegeAgent.equals("1")){
-                                b=a;
-                                c=true;
+                            if (messegeAgent.equals("1")) {
+                                b = a;
+                                c = true;
                                 break;
                             }
                         }
                         System.out.println("Puede comentar las inquietudes al agente");
-                        var message11=in.nextLine();
-                        if(c){
+                        var message11 = in.nextLine();
+                        if (c) {
                             client_Agent(message11, b);
                         }
 
 
-                    }if (message.equals("3")) {
+                    }
+                    if (message.equals("3")) {
                         out.println("Close");
 
-                    }else{
+                    } else {
                         out.println("Por favor ingrese los datos correctos ");
                     }
-                }else{
+                } else {
                     out.println("Espera un cliente");
                 }
 
@@ -189,22 +192,39 @@ public class Server_Logic implements Runnable {
     }
 
     public void client_Agent(String message, Socket agent) throws IOException {
-        Socket a= new Socket();
+        Socket a = new Socket();
 
         var out = new PrintWriter(a.getOutputStream(), true);
 
         var outAgent = new PrintWriter(agent.getOutputStream(), true);
 
-            outAgent.println(message);
+        outAgent.println(message);
 
-            out.println(message);
-
-
+        out.println(message);
 
 
     }
 
+    public String case_Of_Type(String number) {
+        String case_Of_Type = "";
+        if (number.equals("1")) {
+            case_Of_Type = "Perdida";
+        }
+        if (number.equals("2")) {
+            case_Of_Type = "Robo";
+        }
+        if (number.equals("3")) {
+            case_Of_Type = "Abandono";
+        }
+        if (number.equals("4")) {
+            case_Of_Type = "Animal peligroso";
+        }
+        if (number.equals("5")) {
+            case_Of_Type = "Manejo indebido en vía pública";
+        }
+        return case_Of_Type;
 
+    }
 
 
 }
