@@ -20,7 +20,14 @@ public class Server_Logic implements Runnable {
         controller = new Controller();
         agents = new ArrayList<>();
     }
-
+    String especie = "";
+    String tamaño = "";
+    String localidad = "";
+    String direccion = "";
+    String nombre = "";
+    String telefono = "";
+    String correo = "";
+    String comentarios = "";
     @Override
     public void run() {
         safePrintln("Connected: " + socket);
@@ -51,14 +58,7 @@ public class Server_Logic implements Runnable {
                             "(3) Salir";
 
                     out.println(transform_jump(text));
-                    String especie = "";
-                    String tamaño = "";
-                    String localidad = "";
-                    String direccion = "";
-                    String nombre = "";
-                    String telefono = "";
-                    String correo = "";
-                    String comentarios = "";
+
                     var message = in.nextLine();
 
                     String case_Of_Type = "";
@@ -77,7 +77,7 @@ public class Server_Logic implements Runnable {
                         var message2 = in.nextLine();
 
 
-                        if (message.equals(("1"))) {
+                        if (message.equals("1")|| message.equals("2")|| message.equals("3")|| message.equals("4")|| message.equals("5")) {
 
                             case_Of_Type = "Perdida";
                             text = "Cual es la especie \n" +
@@ -130,214 +130,7 @@ public class Server_Logic implements Runnable {
                             out.println("El caso ha sido creado");
                         }
 
-                        var message3 = in.nextLine();
-                        if (message.equals(("2"))) {
-                            case_Of_Type = "Robo";
-                            text = "Cual es la especie \n" +
-                                    "(1) Canino\n" +
-                                    "(2) Felino";
-                            out.println(transform_jump(text));
-                            message2 = in.nextLine();
-                            if (message2.equals("1")) {
-                                especie = "canino";
 
-                            } else if (message2.equals("2")) {
-                                especie = "felino";
-
-                            } else {
-                                out.println("Ingrese un valor correcto");
-                            }
-                            text = "Cual es el tamaño \n" +
-                                    "(1) Grande\n" +
-                                    "(2) Pequeño";
-                            out.println(transform_jump(text));
-                            message2 = in.nextLine();
-                            if (message2.equals("1")) {
-                                tamaño = "grande";
-
-                            } else if (message2.equals("2")) {
-                                tamaño = "pequeño";
-
-                            } else {
-                                out.println("Ingrese un valor correcto");
-                            }
-                            out.println("Ingrese la Localidad");
-                            message2 = in.nextLine();
-                            localidad = message2;
-                            out.println("Ingrese la Dirección");
-                            message2 = in.nextLine();
-                            direccion = message2;
-                            out.println("Nombre completo de la persona que reporta");
-                            message2 = in.nextLine();
-                            nombre = message2;
-                            out.println("Teléfono de la persona que reporta");
-                            message2 = in.nextLine();
-                            telefono = message2;
-                            out.println("Email de la persona que reporta");
-                            message2 = in.nextLine();
-                            correo = message2;
-                            out.println("Comentarios generales");
-                            message2 = in.nextLine();
-                            comentarios = message2;
-                            controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
-                            out.println("El caso ha sido creado");
-                        }
-                        var message4 = in.nextLine();
-                        if (message.equals(("3"))) {
-                            case_Of_Type = "Abandono";
-                            text = "Cual es la especie \n" +
-                                    "(1) Canino\n" +
-                                    "(2) Felino";
-                            out.println(transform_jump(text));
-                            message2 = in.nextLine();
-                            if (message2.equals("1")) {
-                                especie = "canino";
-
-                            } else if (message2.equals("2")) {
-                                especie = "felino";
-
-                            } else {
-                                out.println("Ingrese un valor correcto");
-                            }
-                            text = "Cual es el tamaño \n" +
-                                    "(1) Grande\n" +
-                                    "(2) Pequeño";
-                            out.println(transform_jump(text));
-                            message2 = in.nextLine();
-                            if (message2.equals("1")) {
-                                tamaño = "grande";
-
-                            } else if (message2.equals("2")) {
-                                tamaño = "pequeño";
-
-                            } else {
-                                out.println("Ingrese un valor correcto");
-                            }
-                            out.println("Ingrese la Localidad");
-                            message2 = in.nextLine();
-                            localidad = message2;
-                            out.println("Ingrese la Dirección");
-                            message2 = in.nextLine();
-                            direccion = message2;
-                            out.println("Nombre completo de la persona que reporta");
-                            message2 = in.nextLine();
-                            nombre = message2;
-                            out.println("Teléfono de la persona que reporta");
-                            message2 = in.nextLine();
-                            telefono = message2;
-                            out.println("Email de la persona que reporta");
-                            message2 = in.nextLine();
-                            correo = message2;
-                            out.println("Comentarios generales");
-                            message2 = in.nextLine();
-                            comentarios = message2;
-                            controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
-                            out.println("El caso ha sido creado");
-                        }
-                        var message5 = in.nextLine();
-                        if (message.equals(("4"))) {
-                            case_Of_Type = "Animal peligroso";
-                            text = "Cual es la especie \n" +
-                                    "(1) Canino\n" +
-                                    "(2) Felino";
-                            out.println(transform_jump(text));
-                            message2 = in.nextLine();
-                            if (message2.equals("1")) {
-                                especie = "canino";
-
-                            } else if (message2.equals("2")) {
-                                especie = "felino";
-
-                            } else {
-                                out.println("Ingrese un valor correcto");
-                            }
-                            text = "Cual es el tamaño \n" +
-                                    "(1) Grande\n" +
-                                    "(2) Pequeño";
-                            out.println(transform_jump(text));
-                            message2 = in.nextLine();
-                            if (message2.equals("1")) {
-                                tamaño = "grande";
-
-                            } else if (message2.equals("2")) {
-                                tamaño = "pequeño";
-
-                            } else {
-                                out.println("Ingrese un valor correcto");
-                            }
-                            out.println("Ingrese la Localidad");
-                            message2 = in.nextLine();
-                            localidad = message2;
-                            out.println("Ingrese la Dirección");
-                            message2 = in.nextLine();
-                            direccion = message2;
-                            out.println("Nombre completo de la persona que reporta");
-                            message2 = in.nextLine();
-                            nombre = message2;
-                            out.println("Teléfono de la persona que reporta");
-                            message2 = in.nextLine();
-                            telefono = message2;
-                            out.println("Email de la persona que reporta");
-                            message2 = in.nextLine();
-                            correo = message2;
-                            out.println("Comentarios generales");
-                            message2 = in.nextLine();
-                            comentarios = message2;
-                            controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
-                            out.println("El caso ha sido creado");
-                        }
-                        var message6 = in.nextLine();
-                        if (message.equals(("5"))) {
-                            case_Of_Type = "Manejo indebido en vía pública";
-                            text = "Cual es la especie \n" +
-                                    "(1) Canino\n" +
-                                    "(2) Felino";
-                            out.println(transform_jump(text));
-                            message2 = in.nextLine();
-                            if (message2.equals("1")) {
-                                especie = "canino";
-
-                            } else if (message2.equals("2")) {
-                                especie = "felino";
-
-                            } else {
-                                out.println("Ingrese un valor correcto");
-                            }
-                            text = "Cual es el tamaño \n" +
-                                    "(1) Grande\n" +
-                                    "(2) Pequeño";
-                            out.println(transform_jump(text));
-                            message2 = in.nextLine();
-                            if (message2.equals("1")) {
-                                tamaño = "grande";
-
-                            } else if (message2.equals("2")) {
-                                tamaño = "pequeño";
-
-                            } else {
-                                out.println("Ingrese un valor correcto");
-                            }
-                            out.println("Ingrese la Localidad");
-                            message2 = in.nextLine();
-                            localidad = message2;
-                            out.println("Ingrese la Dirección");
-                            message2 = in.nextLine();
-                            direccion = message2;
-                            out.println("Nombre completo de la persona que reporta");
-                            message2 = in.nextLine();
-                            nombre = message2;
-                            out.println("Teléfono de la persona que reporta");
-                            message2 = in.nextLine();
-                            telefono = message2;
-                            out.println("Email de la persona que reporta");
-                            message2 = in.nextLine();
-                            correo = message2;
-                            out.println("Comentarios generales");
-                            message2 = in.nextLine();
-                            comentarios = message2;
-                            controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
-                            out.println("El caso ha sido creado");
-                        }
                     }if (message.equals("2")) {
                         boolean c = false;
                         Socket b = null;
@@ -410,6 +203,8 @@ public class Server_Logic implements Runnable {
 
 
     }
+
+
 
 
 }
