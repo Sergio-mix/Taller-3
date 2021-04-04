@@ -28,17 +28,9 @@ public class AgentServer {
             System.out.println("Server is running...");
             var scanner = new Scanner(System.in);
             var pool = Executors.newFixedThreadPool(20);
-
-
-
             while (true) {
                 pool.execute(new Agent(listener.accept()));
-
-
             }
-
         }
-
     }
-
 }

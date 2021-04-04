@@ -22,7 +22,7 @@ public class Controller {
     public Controller() {
         caseDao = new CaseDao();
         csv = new Csv();
-        csv.read_File("src\\main\\resources\\data\\records.csv",caseDao.getCase_List());
+        csv.read_File("src\\main\\resources\\data\\records.csv", caseDao.getCase_List());
     }
 
     /**

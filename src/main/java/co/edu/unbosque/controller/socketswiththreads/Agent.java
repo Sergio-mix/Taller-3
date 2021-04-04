@@ -14,15 +14,13 @@ public class Agent implements Runnable {
 
     public Agent(Socket socket) {
         this.socket = socket;
+        controller = new Controller();
     }
 
     @Override
     public void run() {
-
         safePrintln("Connected: " + socket);
-
         try {
-
             var in = new Scanner(socket.getInputStream());
             var out = new PrintWriter(socket.getOutputStream(), true);
 
@@ -33,7 +31,7 @@ public class Agent implements Runnable {
                         "(2) Hablar con un agente";
 
                 out.println(transform_jump(text));
-                String especie="";
+                String especie = "";
                 String tamaño = "";
                 String localidad = "";
                 String direccion = "";
@@ -60,6 +58,7 @@ public class Agent implements Runnable {
 
 
                     if (message.equals(("1"))) {
+
                         case_Of_Type = "Perdida";
                         text = "Cual es la especie \n" +
                                 "(1) Canino\n" +
@@ -67,10 +66,10 @@ public class Agent implements Runnable {
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
-                             especie = "canino";
+                            especie = "canino";
 
                         } else if (message2.equals("2")) {
-                             especie = "felino";
+                            especie = "felino";
 
                         } else {
                             out.println("Ingrese un valor correcto");
@@ -81,33 +80,34 @@ public class Agent implements Runnable {
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
-                             tamaño = "grande";
+                            tamaño = "grande";
 
                         } else if (message2.equals("2")) {
-                             tamaño = "pequeño";
+                            tamaño = "pequeño";
 
                         } else {
                             out.println("Ingrese un valor correcto");
                         }
                         out.println("Ingrese la Localidad");
                         message2 = in.nextLine();
-                         localidad = message2;
+                        localidad = message2;
                         out.println("Ingrese la Dirección");
                         message2 = in.nextLine();
-                         direccion = message2;
+                        direccion = message2;
                         out.println("Nombre completo de la persona que reporta");
                         message2 = in.nextLine();
-                         nombre = message2;
+                        nombre = message2;
                         out.println("Teléfono de la persona que reporta");
                         message2 = in.nextLine();
-                         telefono = message2;
+                        telefono = message2;
                         out.println("Email de la persona que reporta");
                         message2 = in.nextLine();
-                         correo = message2;
+                        correo = message2;
                         out.println("Comentarios generales\n");
                         message2 = in.nextLine();
-                         comentarios = message2;
-                        controller.register_Report(especie,tamaño, localidad,direccion,nombre,telefono,correo,comentarios,case_Of_Type);
+                        comentarios = message2;
+                        controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
+                        out.println("El caso ha sido creado");
                     }
 
                     var message3 = in.nextLine();
@@ -159,7 +159,8 @@ public class Agent implements Runnable {
                         out.println("Comentarios generales\n");
                         message2 = in.nextLine();
                         comentarios = message2;
-                        controller.register_Report(especie,tamaño, localidad,direccion,nombre,telefono,correo,comentarios,case_Of_Type);
+                        controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
+                        out.println("El caso ha sido creado");
                     }
                     var message4 = in.nextLine();
                     if (message.equals(("3"))) {
@@ -210,7 +211,8 @@ public class Agent implements Runnable {
                         out.println("Comentarios generales\n");
                         message2 = in.nextLine();
                         comentarios = message2;
-                        controller.register_Report(especie,tamaño, localidad,direccion,nombre,telefono,correo,comentarios,case_Of_Type);
+                        controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
+                        out.println("El caso ha sido creado");
                     }
                     var message5 = in.nextLine();
                     if (message.equals(("4"))) {
@@ -261,7 +263,8 @@ public class Agent implements Runnable {
                         out.println("Comentarios generales\n");
                         message2 = in.nextLine();
                         comentarios = message2;
-                        controller.register_Report(especie,tamaño, localidad,direccion,nombre,telefono,correo,comentarios,case_Of_Type);
+                        controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
+                        out.println("El caso ha sido creado");
                     }
                     var message6 = in.nextLine();
                     if (message.equals(("5"))) {
@@ -312,17 +315,14 @@ public class Agent implements Runnable {
                         out.println("Comentarios generales\n");
                         message2 = in.nextLine();
                         comentarios = message2;
-                        controller.register_Report(especie,tamaño, localidad,direccion,nombre,telefono,correo,comentarios,case_Of_Type);
+                        controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
+                        out.println("El caso ha sido creado");
                     }
-
                 }
-                out.println("El caso ha sido creado");
                 if (message.equals("2")) {
                     out.println("2");
                 }
-
             }
-
         } catch (Exception e) {
             safePrintln("Error:" + socket);
         } finally {
