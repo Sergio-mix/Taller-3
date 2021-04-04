@@ -28,7 +28,8 @@ public class Agent implements Runnable {
                 String text = "Bienvenidos a Ciudadanos de 4 Patas" +
                         "\nSeleccione:\n" +
                         "(1) Crear caso\n" +
-                        "(2) Hablar con un agente";
+                        "(2) Hablar con un agente\n"+
+                        "(3) Salir";
 
                 out.println(transform_jump(text));
                 String especie = "";
@@ -62,7 +63,7 @@ public class Agent implements Runnable {
                         case_Of_Type = "Perdida";
                         text = "Cual es la especie \n" +
                                 "(1) Canino\n" +
-                                "(2) Felino\n";
+                                "(2) Felino";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -76,7 +77,7 @@ public class Agent implements Runnable {
                         }
                         text = "Cual es el tamaño \n" +
                                 "(1) Grande\n" +
-                                "(2) Pequeño\n";
+                                "(2) Pequeño";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -103,7 +104,7 @@ public class Agent implements Runnable {
                         out.println("Email de la persona que reporta");
                         message2 = in.nextLine();
                         correo = message2;
-                        out.println("Comentarios generales\n");
+                        out.println("Comentarios generales");
                         message2 = in.nextLine();
                         comentarios = message2;
                         controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
@@ -115,7 +116,7 @@ public class Agent implements Runnable {
                         case_Of_Type = "Robo";
                         text = "Cual es la especie \n" +
                                 "(1) Canino\n" +
-                                "(2) Felino\n";
+                                "(2) Felino";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -129,7 +130,7 @@ public class Agent implements Runnable {
                         }
                         text = "Cual es el tamaño \n" +
                                 "(1) Grande\n" +
-                                "(2) Pequeño\n";
+                                "(2) Pequeño";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -156,7 +157,7 @@ public class Agent implements Runnable {
                         out.println("Email de la persona que reporta");
                         message2 = in.nextLine();
                         correo = message2;
-                        out.println("Comentarios generales\n");
+                        out.println("Comentarios generales");
                         message2 = in.nextLine();
                         comentarios = message2;
                         controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
@@ -167,7 +168,7 @@ public class Agent implements Runnable {
                         case_Of_Type = "Abandono";
                         text = "Cual es la especie \n" +
                                 "(1) Canino\n" +
-                                "(2) Felino\n";
+                                "(2) Felino";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -181,7 +182,7 @@ public class Agent implements Runnable {
                         }
                         text = "Cual es el tamaño \n" +
                                 "(1) Grande\n" +
-                                "(2) Pequeño\n";
+                                "(2) Pequeño";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -208,7 +209,7 @@ public class Agent implements Runnable {
                         out.println("Email de la persona que reporta");
                         message2 = in.nextLine();
                         correo = message2;
-                        out.println("Comentarios generales\n");
+                        out.println("Comentarios generales");
                         message2 = in.nextLine();
                         comentarios = message2;
                         controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
@@ -219,7 +220,7 @@ public class Agent implements Runnable {
                         case_Of_Type = "Animal peligroso";
                         text = "Cual es la especie \n" +
                                 "(1) Canino\n" +
-                                "(2) Felino\n";
+                                "(2) Felino";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -233,7 +234,7 @@ public class Agent implements Runnable {
                         }
                         text = "Cual es el tamaño \n" +
                                 "(1) Grande\n" +
-                                "(2) Pequeño\n";
+                                "(2) Pequeño";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -260,7 +261,7 @@ public class Agent implements Runnable {
                         out.println("Email de la persona que reporta");
                         message2 = in.nextLine();
                         correo = message2;
-                        out.println("Comentarios generales\n");
+                        out.println("Comentarios generales");
                         message2 = in.nextLine();
                         comentarios = message2;
                         controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
@@ -271,7 +272,7 @@ public class Agent implements Runnable {
                         case_Of_Type = "Manejo indebido en vía pública";
                         text = "Cual es la especie \n" +
                                 "(1) Canino\n" +
-                                "(2) Felino\n";
+                                "(2) Felino";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -285,7 +286,7 @@ public class Agent implements Runnable {
                         }
                         text = "Cual es el tamaño \n" +
                                 "(1) Grande\n" +
-                                "(2) Pequeño\n";
+                                "(2) Pequeño";
                         out.println(transform_jump(text));
                         message2 = in.nextLine();
                         if (message2.equals("1")) {
@@ -312,7 +313,7 @@ public class Agent implements Runnable {
                         out.println("Email de la persona que reporta");
                         message2 = in.nextLine();
                         correo = message2;
-                        out.println("Comentarios generales\n");
+                        out.println("Comentarios generales");
                         message2 = in.nextLine();
                         comentarios = message2;
                         controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Type);
@@ -321,6 +322,11 @@ public class Agent implements Runnable {
                 }
                 if (message.equals("2")) {
                     out.println("2");
+                }if (message.equals("3")) {
+                    out.println("Close");
+
+                }else{
+                    out.println("Por favor ingrese los datos correctos ");
                 }
             }
         } catch (Exception e) {

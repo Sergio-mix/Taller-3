@@ -16,7 +16,13 @@ public class Client {
                 String text ="";
                 text =in.nextLine();
                 System.out.println(transform_jump(text));
-                out.println(scanner.nextLine());
+                if(transform_jump(text).equals("Close")){
+                    System.exit(0);
+                }else{
+                    out.println(scanner.next());
+                }
+
+
             }
         }
     }
