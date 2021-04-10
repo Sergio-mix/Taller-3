@@ -28,11 +28,13 @@ public class Client implements ActionListener {
                     System.exit(0);
                 } else {
                     out.println(scanner.next());
+
                 }
                 if (transform_jump(text).equals("chat")) {
                     client_view.setVisible(true);
                 } else {
-                    out.println(scanner.next());
+//                    out.println(scanner.next());
+//                    System.out.println("estoy aqui 2");
                 }
             }
         }

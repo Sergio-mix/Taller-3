@@ -9,11 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Class server Logic
+ */
 public class Server_Logic implements Runnable {
 
     private Socket socket;
     private Controller controller;
     private List agents;
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
 
     public Server_Logic(Socket socket) {
         this.socket = socket;
@@ -53,13 +64,14 @@ public class Server_Logic implements Runnable {
 
                 }
                 if (!agentG) {
-                    String text = "Bienvenidos a Ciudadanos de 4 Patas" +
+                    String text;
+                    String text1 = ANSI_GREEN+"Bienvenidos a Ciudadanos de 4 Patas" +
                             "\nSeleccione:\n" +
                             "(1) Crear caso\n" +
                             "(2) Hablar con un agente\n" +
                             "(3) Salir";
 
-                    out.println(transform_jump(text));
+                    out.println(transform_jump(text1));
 
                     var message = in.nextLine();
 
@@ -67,7 +79,7 @@ public class Server_Logic implements Runnable {
                     if (message.equals("1")) {
 
 
-                        text = "Cual es el tipo de caso que desea reportar\n" +
+                        text = ANSI_CYAN+"Cual es el tipo de caso que desea reportar\n" +
                                 "(1) Pérdida\n" +
                                 "(2) Robo\n" +
                                 "(3) Abandono\n" +

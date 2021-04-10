@@ -8,6 +8,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * Class Agent
+ */
 public class Agent implements ActionListener {
     private static Agent_View agent_view;
 
