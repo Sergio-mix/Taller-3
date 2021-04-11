@@ -1,6 +1,6 @@
 package co.edu.unbosque.controller;
 
-import co.edu.unbosque.view.Agent_View;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,8 +13,8 @@ import java.util.concurrent.Executors;
 /**
  * Class Agent
  */
-public class Agent implements ActionListener {
-    private static Agent_View agent_view;
+public class Agent {
+
 
     public static void main(String[] args) throws Exception {
 
@@ -42,11 +42,6 @@ public class Agent implements ActionListener {
         text = text.replace("&&", "\n");
         return text;
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == agent_view.jButton) {
-
-        }
-    }
 }
+
+

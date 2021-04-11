@@ -146,29 +146,6 @@ public class Server_Logic implements Runnable {
                     }
                     if (message.equals("2")) {
                         out.println("chat");
-//                        boolean c = false;
-//                        Socket b = null;
-//                        for (int i = 0; i < agents.size(); i++) {
-//
-//                            Socket a = (Socket) agents.get(i);
-//                            var inAgent = new Scanner(a.getInputStream());
-//                            var outAgent = new PrintWriter(a.getOutputStream(), true);
-//                            outAgent.println("(1)Aceptar\n" +
-//                                    "(2)Denegar");
-//                            var messegeAgent = inAgent.nextLine();
-//                            if (messegeAgent.equals("1")) {
-//                                b = a;
-//                                c = true;
-//                                break;
-//                            }
-//                        }
-//                        System.out.println("Puede comentar las inquietudes al agente");
-//                        var message11 = in.nextLine();
-//                        if (c) {
-//                            client_Agent(message11, b);
-//                        }
-
-
                     }
                     if (message.equals("3")) {
                         out.println("Close");
