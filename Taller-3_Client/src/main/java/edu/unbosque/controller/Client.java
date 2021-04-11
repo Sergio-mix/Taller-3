@@ -31,10 +31,25 @@ public class Client implements ActionListener {
 
                 }
                 if (transform_jump(text).equals("chat")) {
-                    client_view.setVisible(true);
+//                    client_view.setVisible(true);
+                    try (var socket2 = new Socket("127.0.0.1", 8201)) {
+                        scanner = new Scanner(System.in);
+                        var in2 = new Scanner(socket2.getInputStream());
+                        var out2 = new PrintWriter(socket2.getOutputStream(), true);
+
+                        while (in.hasNextLine()) {
+
+                            text = "";
+                            text = "Agente: "+in2.nextLine();
+                            System.out.println(text);
+                            out2.println(scanner.nextLine());
+
+                        }
+                    }
+
+
                 } else {
-//                    out.println(scanner.next());
-//                    System.out.println("estoy aqui 2");
+//
                 }
             }
         }
