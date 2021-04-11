@@ -20,4 +20,26 @@ _Dependency is required  commons-csv_
         </dependency>
 ```
 ## Explicacion funcionamiento programa
+```
+Paso 1.
+Clonar el rspositorio
+Paso2.
+Abrir y ejecutar 
+src\main\java\controller\socket\server
+Paso 3.
+Abrir y ejecutar 
+Taller-3_Agent\\src\main\java\co.edu.unbosque.controller\Agent
+Paso 4.
+Abrir y ejecutar 
+Taller-3_Client\\src\main\java\co.edu.unbosque.controller\Client
+Paso 5.
+Interactuar con el programa
+
+NOTA: 
+1) Si desea  ver  un registro dirijase a la siguiente direccion:
+  src\main\resources\data\records.csv
+2) Si desea hablar con el agente despues de haber digitado la opcion 2, introduzca abajo de la palabra chat un 2 y luego de esto dirijase a la consola de Agent y acepte la solicitud
+3) Si desea ver los mensajes interactue con las consolas Agent y Client.
+4) Mas informacion revise el gif de abajo
+```
 ![GifTaller3](https://user-images.githubusercontent.com/73042237/114315710-c76d5c80-9ac5-11eb-98ba-e3cb464e986c.gif)
