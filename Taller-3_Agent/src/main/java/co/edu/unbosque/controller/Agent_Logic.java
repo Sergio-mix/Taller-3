@@ -5,18 +5,35 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * clase de la logica del agente
+ */
 public class Agent_Logic implements Runnable {
-
+    /**
+     * se instancia un socket
+     */
     private Socket socket;
+
+    /**
+     * Constructor
+     * @param socket
+     */
     public Agent_Logic(Socket socket) {
         this.socket = socket;
 
     }
-
+/**
     @Override
+    /** Se realiza un hilo para la clase agent
+     *
+     */
     public void run() {
         safePrintln("Connected: " + socket);
+
         try {
+            /**
+             * S edeclaran las variables para el mensaje y para enviar
+             */
             String send = "";
             String messege="";
             var in = new Scanner(socket.getInputStream());
@@ -25,7 +42,13 @@ public class Agent_Logic implements Runnable {
             String solicitud = "Solicitud de aceptacion agente: " +
                     "\n (1) Aceptar" +
                     "\n (2) Denegar";
+            /**
+             * Se recibe la solicitud
+             */
             messege = transform_jump(in.nextLine());
+            /**
+             * Se realizan las diferentes validaciones dependiendo la opcion digitalizada
+             */
             if (messege.equals(solicitud)){
                 safePrintln(messege);
                 send = scanner.nextLine();
@@ -62,6 +85,12 @@ public class Agent_Logic implements Runnable {
             System.out.println(s);
         }
     }
+
+    /**
+     * Metodo para remplazar los \n
+     * @param text
+     * @return
+     */
     public static String transform_jump(String text) {
         text = text.replace("&&", "\n");
         return text;

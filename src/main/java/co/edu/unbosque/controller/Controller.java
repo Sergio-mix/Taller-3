@@ -12,6 +12,7 @@ import java.util.Date;
  * Class Controller
  */
 public class Controller {
+    //Se instancian las clases que necesitamos
     private CaseDao caseDao;
     private Report report;
     private Csv csv;

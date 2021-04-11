@@ -15,11 +15,18 @@ import java.util.concurrent.Executors;
  */
 public class Agent {
 
-
+    /**
+     * Clase agente
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
 
 
 //        agent_view = new Agent_View();
+        /**
+         * Se genera un nuevo servidor para la clase agente
+         */
 
         try (var socket = new Socket("127.0.0.1", 7200)) {
             var scanner = new Scanner(System.in);
@@ -37,6 +44,12 @@ public class Agent {
             }
         }
     }
+
+    /**
+     * Metodo para remplazar los \n
+     * @param text
+     * @return
+     */
 
     public static String transform_jump(String text) {
         text = text.replace("&&", "\n");

@@ -8,14 +8,16 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 /**
  * Class server Logic
  */
 public class Server_Logic implements Runnable {
-
+    //Hacemos las instancias de las clases que vamos a necesitar
     private Socket socket;
     private Controller controller;
     private List agents;
+
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -25,12 +27,14 @@ public class Server_Logic implements Runnable {
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
 
+    // constructor
     public Server_Logic(Socket socket) {
         this.socket = socket;
         controller = new Controller();
         agents = new ArrayList<>();
     }
 
+    // variables para el menu
     String especie = "";
     String tamaño = "";
     String localidad = "";
@@ -41,6 +45,7 @@ public class Server_Logic implements Runnable {
     String comentarios = "";
 
     @Override
+    //se corre el socket
     public void run() {
         safePrintln("Connected: " + socket);
 
@@ -49,7 +54,7 @@ public class Server_Logic implements Runnable {
             var in = new Scanner(socket.getInputStream());
             var out = new PrintWriter(socket.getOutputStream(), true);
 
-
+//validacion para añadir un socket al agente
             while (true) {
                 boolean agentG = false;
                 var entrar = in.nextLine();
@@ -62,9 +67,10 @@ public class Server_Logic implements Runnable {
                     }
 
                 }
+                // Este es el menu que aparece al ejecutar el cliente
                 if (!agentG) {
                     String text;
-                    String text1 = ANSI_GREEN+"Bienvenidos a Ciudadanos de 4 Patas" +
+                    String text1 = ANSI_GREEN + "Bienvenidos a Ciudadanos de 4 Patas" +
                             "\nSeleccione:\n" +
                             "(1) Crear caso\n" +
                             "(2) Hablar con un agente\n" +
@@ -78,7 +84,7 @@ public class Server_Logic implements Runnable {
                     if (message.equals("1")) {
 
 
-                        text = ANSI_CYAN+"Cual es el tipo de caso que desea reportar\n" +
+                        text = ANSI_CYAN + "Cual es el tipo de caso que desea reportar\n" +
                                 "(1) Pérdida\n" +
                                 "(2) Robo\n" +
                                 "(3) Abandono\n" +
@@ -89,6 +95,7 @@ public class Server_Logic implements Runnable {
 
                         var message2 = in.nextLine();
                         String case_Of_Types = case_Of_Type(message2);
+                        //Validacion para la opcion digitada
                         if (message.equals("1") || message.equals("2") || message.equals("3") || message.equals("4") || message.equals("5")) {
 
 
@@ -138,6 +145,7 @@ public class Server_Logic implements Runnable {
                             out.println("Comentarios generales");
                             message2 = in.nextLine();
                             comentarios = message2;
+                            // se envian los datos registrados al constructor del controlador
                             controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Types);
                             out.println("El caso ha sido creado");
                         }
@@ -174,12 +182,12 @@ public class Server_Logic implements Runnable {
             System.out.println(s);
         }
     }
-
+// metodo para remplazarlos /n
     public String transform_jump(String text) {
         text = text.replace("\n", "&&");
         return text;
     }
-
+// recibe el mensaje emitido por el agente
     public void client_Agent(String message, Socket agent) throws IOException {
         Socket a = new Socket();
 
@@ -193,7 +201,7 @@ public class Server_Logic implements Runnable {
 
 
     }
-
+// metodo para determinar el tipo de caso dependiendo la opcion que se haya digitalizado
     public String case_Of_Type(String number) {
         String case_Of_Type = "";
         if (number.equals("1")) {
