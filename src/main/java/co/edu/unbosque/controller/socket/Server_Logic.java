@@ -36,7 +36,7 @@ public class Server_Logic implements Runnable {
 
     // variables para el menu
     String especie = "";
-    String tamaño = "";
+    String tamano = "";
     String localidad = "";
     String direccion = "";
     String nombre = "";
@@ -119,10 +119,10 @@ public class Server_Logic implements Runnable {
                             out.println(transform_jump(text));
                             message2 = in.nextLine();
                             if (message2.equals("1")) {
-                                tamaño = "grande";
+                                tamano = "grande";
 
                             } else if (message2.equals("2")) {
-                                tamaño = "pequeño";
+                                tamano = "pequeño";
 
                             } else {
                                 out.println("Ingrese un valor correcto");
@@ -146,7 +146,7 @@ public class Server_Logic implements Runnable {
                             message2 = in.nextLine();
                             comentarios = message2;
                             // se envian los datos registrados al constructor del controlador
-                            controller.register_Report(especie, tamaño, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Types);
+                            controller.register_Report(especie, tamano, localidad, direccion, nombre, telefono, correo, comentarios, case_Of_Types);
                             out.println("El caso ha sido creado");
                         }
 
