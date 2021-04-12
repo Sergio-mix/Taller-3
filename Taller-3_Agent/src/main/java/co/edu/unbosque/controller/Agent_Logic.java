@@ -22,7 +22,7 @@ public class Agent_Logic implements Runnable {
         this.socket = socket;
 
     }
-/**
+
     @Override
     /** Se realiza un hilo para la clase agent
      *
